@@ -1,38 +1,65 @@
-<h1>EAT-DA-BURGER</h1>
+<h1 id="title">EAT-DA-BURGER</h1>
 
-<h2> Burgers to be eaten</h2>
+<div class="container">
 
-<ul>
-    {{!-- loop through each burger --}}
-    {{#each burgers}}
-    {{!-- if devoured is false it will render the burger --}}
-    {{#unless devoured}}
-        {{!-- use a handlebars partial to display the data --}}
-        {{> burger-block devoured=false}}
-    {{/unless}} 
-    {{/each}}
-</ul>
+    <div class='row'>
 
-<h2> Burgers that have been eaten</h2>
+        <div class="col-md-6">
 
-<ul>
-    {{!-- loop through each burger --}}
-    {{#each burgers}}
-    {{!-- if devoured is false it will render the burger --}}
-    {{#if devoured}}
-        {{!-- use a handlebars partial to display the data --}}
-        {{> burger-block devoured=true}}
-    {{/if}} 
-    {{/each}}
-</ul>
+            <h2> Burgers to be eaten</h2>
 
-<h2>Add a Burger</h2>
-<form class="create-form">
+            <ul>
+                {{!-- loop through each burger --}}
+                {{#each burgers}}
+                {{!-- if devoured is false it will render the burger --}}
+                {{#unless devoured}}
+                {{!-- use a handlebars partial to display the data --}}
+                {{> burger-block devoured=false}}
+                {{/unless}}
+                {{/each}}
+            </ul>
 
-<div class="form-group">
-    <label for='burger'>Burger Name:</label>
-    <input type="text" id="burger" name="name">
+
+
+        </div>
+
+        <div class="col-md-6">
+
+            <h2> Burgers that have been eaten</h2>
+
+            <ul>
+                {{!-- loop through each burger --}}
+                {{#each burgers}}
+                {{!-- if devoured is false it will render the burger --}}
+                {{#if devoured}}
+                {{!-- use a handlebars partial to display the data --}}
+                {{> burger-block devoured=true}}
+                {{/if}}
+                {{/each}}
+            </ul>
+
+        </div>
+
+
+
+
+    </div> {{!-- end div row --}}
+
+</div> {{!-- end div container --}}
+
+
+<div class="container">
+
+        <h3>Add a Burger</h3>
+        <form class="create-form">
+
+            <div class="form-group">
+                <label for='burger'>Burger Name:</label>
+                <input type="text" id="burger" name="name">
+            </div>
+            <button type="submit">ADD BURGER</button>
+
+        </form>
+
+
 </div>
-<button type="submit">ADD BURGER</button>
-
-</form>
