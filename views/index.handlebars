@@ -30,7 +30,7 @@
             <ul>
                 {{!-- loop through each burger --}}
                 {{#each burgers}}
-                {{!-- if devoured is false it will render the burger --}}
+                {{!-- if devoured is true it will render the burger --}}
                 {{#if devoured}}
                 {{!-- use a handlebars partial to display the data --}}
                 {{> burger-block devoured=true}}
