@@ -29,13 +29,8 @@ module.exports = function (app) {
                 // respond with the inserted Id
                 // res.json({ id: data.insertId})
                 console.log(data);
-                if (data.changedRows == 0) {
-                    // If no rows were changed, then the ID must not exist, so 404
-                    // return res.status(404).end();
-                    res.status(200).end();
-                } else {
-                    res.status(200).end();
-                }
+                res.status(200).end();
+
             })
             .catch(function (err) {
                 console.log(err);
@@ -61,6 +56,20 @@ module.exports = function (app) {
                 console.log(err);
             });
     }); // end app.put
+
+
+    //app.delete
+    // deleteOne()
+    app.delete("/api/burgers/:id", function (req, res) {
+        burger.delete(req.params.id)
+            .then(function (data) {
+                console.log(data);
+                res.status(200).end();
+            })
+            .catch(function(err){
+                console.log(err);
+            })
+    })
 
 
 } // end module.exports = function(app)

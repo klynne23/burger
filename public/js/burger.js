@@ -54,4 +54,16 @@ $(function () {
     }); // end on click function for .eat-burger
 
 
+    // click function to delete a devoured burger
+    $(".delete-burger").on("click", function(event){
+        var id = $(this).data("id");
+
+        $.ajax("/api/burgers/" + id, {
+            type: "DELETE"
+        }).then(function(){
+            console.log("you deleted the burger");
+            location.reload();
+        }) // end .then
+    })
+
 }); // end DOM ready function

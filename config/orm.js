@@ -51,6 +51,18 @@ function ORM(table) {
             }) // end promise
         } // end updateOne()
 
+        //app.delete
+        this.delete = function(id){
+            const sql = "DELETE FROM ?? WHERE id = ?";
+
+            return new Promise(function(resolve, reject){
+                connection.query(sql, [table, id], function(err, data){
+                    if (err) reject(err);
+                    resolve(data);
+                });
+            }) // end promise
+        } // end delete()
+
 } // end ORM constructor
 
 module.exports = ORM;
