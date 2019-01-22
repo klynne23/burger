@@ -5,23 +5,29 @@ $(function () {
         // prevent the form from redirecting
         event.preventDefault();
 
-        var newBurger = {
-            name: $("#burger").val().trim()
+        if (($("#burger").val().trim()) == "") {
+            alert("enter a burger name")
         }
+        else {
 
-        // Send the POST request.
-        $.ajax("/api/burgers", {
-            type: "POST",
-            data: newBurger
-        }).then(function () {
+            var newBurger = {
+                name: $("#burger").val().trim()
+            }
 
-            // i dont know why none of these execute but the database does update
-            // and you can see the changes when you manually refresh the page
-            
-            console.log("created new burger");
-            location.reload();
-        }); // end .then
+            // Send the POST request.
+            $.ajax("/api/burgers", {
+                type: "POST",
+                data: newBurger
+            }).then(function () {
 
+                // i dont know why none of these execute but the database does update
+                // and you can see the changes when you manually refresh the page
+
+                console.log("created new burger");
+                location.reload();
+            }); // end .then
+
+        }
     }); // end on click function for .create-form
 
 

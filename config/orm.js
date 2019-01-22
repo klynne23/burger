@@ -24,32 +24,32 @@ function ORM(table) {
     }, // end selectAll()
 
 
-    // APP.POST FUNCTION
-    // INSERT ONE()
-    this.insertOne = function (name) {
-        const sql = `INSERT INTO ?? (burger_name) VALUES (?)`;
+        // APP.POST FUNCTION
+        // INSERT ONE()
+        this.insertOne = function (name) {
+            const sql = `INSERT INTO ?? (burger_name) VALUES (?)`;
 
-        return new Promise(function (resolve, reject) {
-            connection.query(sql, [table, name], function (err, data) {
-                if (err) reject(err);
-                resolve(data);
-            });
-        }) // end promise
-    }, // end insertOne()
+            return new Promise(function (resolve, reject) {
+                connection.query(sql, [table, name], function (err, data) {
+                    if (err) reject(err);
+                    resolve(data);
+                });
+            }) // end promise
+        }, // end insertOne()
 
 
-    // APP.PUT FUNCTION
-    // UPDATE ONE()
-    this.updateOne = function (id) {
-        const sql = `UPDATE ?? SET devoured = true WHERE id = ?`;
+        // APP.PUT FUNCTION
+        // UPDATE ONE()
+        this.updateOne = function (id) {
+            const sql = `UPDATE ?? SET devoured = true WHERE id = ?`;
 
-        return new Promise(function (resolve, reject) {
-            connection.query(sql, [table, id], function (err, data) {
-                if (err) reject(err);
-                resolve(data);
-            });
-        }) // end promise
-    } // end updateOne()
+            return new Promise(function (resolve, reject) {
+                connection.query(sql, [table, id], function (err, data) {
+                    if (err) reject(err);
+                    resolve(data);
+                });
+            }) // end promise
+        } // end updateOne()
 
 } // end ORM constructor
 
