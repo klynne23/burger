@@ -21,7 +21,7 @@ module.exports = function (app) {
 
     // app.post
     // corresponds to the insertOne() function in ORM
-    app.post("/api/burgers", function (req, res) {
+    app.post("/api/burgers/", function (req, res) {
         // grab the name of the user input burger and send to the ORM function
         // use req.body since we are grabbing the name off of the request
         burger.insertOne(req.body.name)
@@ -29,6 +29,13 @@ module.exports = function (app) {
                 // respond with the inserted Id
                 // res.json({ id: data.insertId})
                 console.log(data);
+                if (data.changedRows == 0) {
+                    // If no rows were changed, then the ID must not exist, so 404
+                    // return res.status(404).end();
+                    res.status(200).end();
+                } else {
+                    res.status(200).end();
+                }
             })
             .catch(function (err) {
                 console.log(err);
